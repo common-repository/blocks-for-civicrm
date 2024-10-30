@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "blocks-for-civicrm/civicrm",
+  "version": "1.4.1",
+  "title": "CiviCRM component",
+  "category": "widgets",
+  "icon": "screenoptions",
+  "description": "Block for CiviCRM",
+  "supports": {
+    "align": [
+      "center",
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "component": {
+      "type": "string",
+      "default": ""
+    },
+    "mode": {
+      "type": "string",
+      "default": "live"
+    },
+    "hijack": {
+      "type": "string",
+      "default": "0"
+    },
+    "id": {
+      "type": "string",
+      "default": ""
+    },
+    "gid": {
+      "type": "string",
+      "default": ""
+    },
+    "cid": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "blocks-for-civicrm",
+  "editorScript": "file:./index.js"
+}

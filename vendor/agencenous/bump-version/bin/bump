@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Help
+if [ "$1" == "-h" ]; then
+  echo "";
+  echo "  bump x.y.z";
+  echo "  Updates the version of the project in all .php, .js, .json, .xml and .md files"
+  echo "  Usage: vendor/bin/bump [version]"
+  echo "";
+  echo "-h: Show this help";
+  echo "-v: Show the current version";
+  echo "";
+  exit 0
+fi
+
+# Show version form composer .json with -v argument
+if [ "$1" == "-v" ]; then
+  script_dir=$(dirname "$0")
+  root_dir=$(dirname "$script_dir")
+  composer_json_path="$root_dir/composer.json"
+  grep '"version":' $composer_json_path
+  exit 0
+fi
+
+# Check if the version is passed as an argument
+if [ -z "$1" ]
+  then
+    echo "No version supplied. Call bump with the new version number as an argument."
+    echo "$0 -h for help."
+    exit 1
+fi
+
+# Check if the version is a valid version
+if ! [[ $1 =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    echo "Invalid version number: ($1). Please provide a version number in the format x.y.z"
+    exit 1
+fi
+
+# Loop through all .php, .js, .json and .md files not in vendor or node_modules and replace the version with the new version
+for file in $(find . -type f \( -regex '.*\.\(php\|md\|js\|json\|xml\)$' -not -path "*package-lock*" -not -path "*/vendor/*" -not -path "*/node_modules/*" -not -path "*/cache/*" \))
+do
+  sed -i -E "s/(Version:(\s*)|@version(\s*)|Stable tag:\s*)[0-9]+\.[0-9]+\.[0-9]+/\1$1/g" "$file"
+  sed -i -E "s/(\"version\":\s*)\"[0-9]+\.[0-9]+\.[0-9]+\"/\1\"$1\"/g" "$file"
+  sed -i -E "s/<version>[0-9]+\.[0-9]+\.[0-9]+<\/version>/<version>$1<\/version>/g" "$file"
+  echo "Updated version in $file"
+done
+
+echo "Updated version to $1"

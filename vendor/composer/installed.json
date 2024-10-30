@@ -1,0 +1,96 @@
+{
+    "packages": [
+        {
+            "name": "agencenous/bump-version",
+            "version": "1.2.0",
+            "version_normalized": "1.2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/agencenous/bump-version.git",
+                "reference": "6f345c8f5b4ffd4740ab57291a576b8136b61437"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/agencenous/bump-version/zipball/6f345c8f5b4ffd4740ab57291a576b8136b61437",
+                "reference": "6f345c8f5b4ffd4740ab57291a576b8136b61437",
+                "shasum": ""
+            },
+            "time": "2024-03-22T14:24:57+00:00",
+            "bin": [
+                "bin/bump"
+            ],
+            "type": "project",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Bastien Ho",
+                    "role": "lead"
+                }
+            ],
+            "description": "Bump version in source files",
+            "support": {
+                "issues": "https://github.com/agencenous/bump-version/issues",
+                "source": "https://github.com/agencenous/bump-version/tree/1.2.0"
+            },
+            "install-path": "../agencenous/bump-version"
+        },
+        {
+            "name": "agencenous/wp-reporting",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/agencenous/wp-reporting.git",
+                "reference": "a7841b6fb4a0d062620645f6dbf062e4486fd03b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/agencenous/wp-reporting/zipball/a7841b6fb4a0d062620645f6dbf062e4486fd03b",
+                "reference": "a7841b6fb4a0d062620645f6dbf062e4486fd03b",
+                "shasum": ""
+            },
+            "require-dev": {
+                "agencenous/bump-version": "dev-main",
+                "squizlabs/php_codesniffer": "^3.8",
+                "suin/phpcs-psr4-sniff": "^3.0",
+                "wp-coding-standards/wpcs": "^3.0"
+            },
+            "time": "2024-03-22T15:52:15+00:00",
+            "default-branch": true,
+            "bin": [
+                "wp-reporting-encode-email"
+            ],
+            "type": "wordpress-package",
+            "installation-source": "source",
+            "autoload": {
+                "files": [
+                    "src/wp-reporting.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Bastien Ho",
+                    "email": "bastien@avecnous.eu"
+                }
+            ],
+            "description": "Utility for sending log reports in Wordpress themes & plugins",
+            "support": {
+                "issues": "https://github.com/agencenous/wp-reporting/issues",
+                "source": "https://github.com/agencenous/wp-reporting/tree/1.8.0"
+            },
+            "install-path": "../agencenous/wp-reporting"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": [
+        "agencenous/bump-version"
+    ]
+}
